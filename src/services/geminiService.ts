@@ -5,12 +5,6 @@ import { GAME_QUESTIONS_COUNT } from "../constants";
 // Vite exposes environment variables via import.meta.env
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-if (!API_KEY) {
-  console.error("API_KEY is not set. Please create a .env file and set VITE_API_KEY.");
-  // You might want to throw an error here or handle it gracefully
-  alert("The Gemini API Key is missing. The application will not be able to generate questions.");
-}
-
 const ai = new GoogleGenAI({ apiKey: API_KEY! });
 
 const getGradeLevelPrompt = (grade: number): string => {
